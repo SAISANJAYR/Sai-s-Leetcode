@@ -1,0 +1,30 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, str1):
+    
+        t_str = ''
+        str_list = []
+
+        for i in range(len(str1)):
+            if str1[i] not in t_str:
+                t_str = t_str + str1[i]
+            else:
+                str_list.append(t_str)
+                ind = t_str.index(str1[i])
+                t_str = t_str[ind + 1: ] + str1[i]
+        str_list.append(t_str)
+
+        re_str = ''
+        for strs in str_list:
+            if len(strs) > len(re_str):
+                re_str = strs
+
+        return len(re_str)
+        
+    
+
+
+
+
+
+                 
+        
